@@ -24,11 +24,11 @@ func NewTokenBucket(capacity, fillRate int) *TokenBucket {
 func (tb *TokenBucket) AllowRequest(tokens int) bool {
 	now := time.Now()
 	time_passed := int(now.Sub(tb.lastTime).Seconds()) // the difference in seconds between lastTime and now
-	// the min beetween the difference in seconds * fillRate and the total capacity (aka max per bucket)
+	// the min between the difference in seconds * fillRate and the total capacity (aka max per bucket)
 	tb.tokens = min(tb.capacity, (tb.tokens + time_passed*tb.fillRate))
 	tb.lastTime = now
 
-	// checks if requested tokens are bigger than the available tokens
+	// checks if requested toke ns are bigger than the available tokens
 	if tb.tokens >= tokens {
 		tb.tokens -= tokens
 		return true

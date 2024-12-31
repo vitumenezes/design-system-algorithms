@@ -1,3 +1,3 @@
-module github.com/vitumenezes/design-system-algorithms
+module github.com/vitumenezes/system-design-algorithms
 
 go 1.23.4
