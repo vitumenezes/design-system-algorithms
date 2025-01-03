@@ -28,7 +28,7 @@ func (tb *TokenBucket) AllowRequest(tokens int) bool {
 	tb.tokens = min(tb.capacity, (tb.tokens + time_passed*tb.fillRate))
 	tb.lastTime = now
 
-	// checks if requested toke ns are bigger than the available tokens
+	// checks if requested tokens are bigger than the available tokens
 	if tb.tokens >= tokens {
 		tb.tokens -= tokens
 		return true
